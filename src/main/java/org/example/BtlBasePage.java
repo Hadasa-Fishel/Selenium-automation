@@ -12,11 +12,11 @@ public abstract class BtlBasePage extends BasePage {
     @FindBy(id = "TopQuestions")
     protected WebElement searchField;
 
-    // 2. כפתור זכוכית מגדלת (חיפוש) - לקחנו את ה-ID מהצילום שלך
+    // 2. כפתור זכוכית מגדלת (חיפוש)
     @FindBy(id = "ctl00_SiteHeader_reserve_btnSearch")
     protected WebElement searchButton;
 
-    // 3. כפתור סניפים - לקחנו את ה-ID מהצילום שלך
+    // 3. כפתור סניפים
     @FindBy(id = "ctl00_Topmneu_BranchesHyperLink")
     protected WebElement branchesButton;
 
@@ -56,6 +56,13 @@ public abstract class BtlBasePage extends BasePage {
     public void navigateToPage(MainMenu menu, String subMenuText) {
         clickMainMenu(menu);
         clickSubMenu(subMenuText);
+    }
+
+    @FindBy(css = ".breadcrumbs, #breadCrumbs")
+    private WebElement breadcrumbsElement;
+
+    public String getBreadcrumbsText() {
+        return breadcrumbsElement.getText();
     }
 }
 

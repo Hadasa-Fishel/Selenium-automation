@@ -9,12 +9,8 @@ public class DriverFactory {
     private static WebDriver driver;
 
     public static WebDriver getDriver() {
-        if (driver == null) {
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
-            driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        }
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
         return driver;
     }
 
